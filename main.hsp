@@ -9,3 +9,14 @@ dim rule, 8
 repeat 8
     if rule_no and int(powf(2,cnt)) : rule(cnt) = 1
 loop
+
+dim cells, 3
+cells(0) = 1
+cells(1) = 1
+repeat 3
+    mes cells(cnt)
+loop
+
+mes ""
+
+mes rule((cells(0)*4)+(cells(1)*2)+(cells(2)*1))
