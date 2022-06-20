@@ -1,0 +1,13 @@
+rule_no = 30
+mes "rule_no=" + rule_no
+
+assert
+
+dim rule, 8
+
+/*ルールの生成
+2のcnt乗のビットが1なら配列の対応する箇所に1を代入
+ただのintである筈のモノをビットごとに切り出して配列にする*/
+repeat 8
+    if rule_no and int(powf(2,cnt)) : rule(cnt) = 1
+loop
