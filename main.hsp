@@ -1,8 +1,6 @@
 rule_no = 30
 mes "rule_no=" + rule_no
 
-assert
-
 dim rule, 8
 
 /*ルールの生成
