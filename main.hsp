@@ -1,5 +1,4 @@
-rule_no = 30
-mes "rule_no=" + rule_no
+rule_no = 110
 
 dim rule, 8
 
@@ -10,13 +9,20 @@ repeat 8
     if rule_no and int(powf(2,cnt)) : rule(cnt) = 1
 loop
 
-dim cells, 3
-cells(0) = 1
-cells(1) = 1
-repeat 3
-    mes cells(cnt)
+dim cells, 642
+cells(321) = 1
+
+dim tmp, 640
+
+x = 0 : y = 0
+
+repeat 480
+    repeat 640, 1
+        tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
+        cells(cnt) = tmp(cnt)
+        if cells(cnt) = 1 : pset x, y
+        x++
+    loop
+    y++
+    wait 1
 loop
-
-mes ""
-
-mes rule((cells(0)*4)+(cells(1)*2)+(cells(2)*1))
