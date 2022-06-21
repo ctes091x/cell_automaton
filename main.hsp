@@ -9,20 +9,32 @@ repeat 8
     if rule_no and int(powf(2,cnt)) : rule(cnt) = 1
 loop
 
+/*状態遷移と表示
+なんとも言えないので逐行解説する*/
+
+//現在のセルの状態を表す配列の要素は画面の横幅+2だけ用意する
+//そうしないと-1番を参照して怒られる
 dim cells, 642
+//真ん中に1を置く
 cells(321) = 1
-
+//次のセルの状態を表す配列
 dim tmp, 640
-
+//現在の表示座標
 x = 0 : y = 0
 
 repeat 480
     repeat 640, 1
+        //なんかもうわかんない
+        //夜に思いついた素晴らしい(筈の)処理を書いた
         tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
+        //次が現在になる
         cells(cnt) = tmp(cnt)
+        //1のセルに黒い点を打つ
         if cells(cnt) = 1 : pset x, y
+        //x座標に1を足す
         x++
     loop
+    //y座標に1を足す
     y++
     wait 1
 loop
