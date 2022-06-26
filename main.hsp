@@ -24,8 +24,7 @@ repeat 20
     repeat 68, 1
         //出力
         mes cells(cnt),1
-        //なんかもうわかんない
-        //夜に思いついた素晴らしい(筈の)処理を書いた
+        //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
         tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
         //次が現在になる
         cells(cnt) = tmp(cnt)
