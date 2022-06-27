@@ -14,7 +14,8 @@ loop
 /*状態遷移と表示
 なんとも言えないので逐行解説する*/
 
-size = 70
+size = 160
+height = 50
 
 dim cells, size
 //真ん中に1を置く
@@ -24,7 +25,9 @@ dim tmp, size
 //現在の表示座標
 ;x = 0 : y = 0
 
-repeat 25
+font "", 8
+
+repeat height
     repeat size - 2, 1
         //出力
         mes cells(cnt),1
@@ -38,5 +41,4 @@ repeat 25
     //y座標に1を足す
     mes
     pos 0,
-    wait 1
 loop
