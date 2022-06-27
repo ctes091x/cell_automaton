@@ -1,4 +1,6 @@
-rule_no = 30
+rule_code = 110
+
+mes rule_code
 
 dim rule, 8
 
@@ -6,13 +8,13 @@ dim rule, 8
 2のcnt乗のビットが1なら配列の対応する箇所に1を代入
 ただのintである筈のモノをビットごとに切り出して配列にする*/
 repeat 8
-    if rule_no and int(powf(2,cnt)) : rule(cnt) = 1
+    if rule_code and int(powf(2,cnt)) : rule(cnt) = 1
 loop
 
 /*状態遷移と表示
 なんとも言えないので逐行解説する*/
 
-size = 5
+size = 70
 
 dim cells, size
 //真ん中に1を置く
@@ -22,12 +24,14 @@ dim tmp, size
 //現在の表示座標
 ;x = 0 : y = 0
 
-repeat 20
+repeat 25
     repeat size - 2, 1
         //出力
         mes cells(cnt),1
         //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
         tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
+    loop
+    repeat size - 2, 1
         //次が現在になる
         cells(cnt) = tmp(cnt)
     loop
