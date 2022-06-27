@@ -12,16 +12,18 @@ loop
 /*状態遷移と表示
 なんとも言えないので逐行解説する*/
 
-dim cells, 70
+size = 5
+
+dim cells, size
 //真ん中に1を置く
-cells(35) = 1
+cells(int(size/2)) = 1
 //次のセルの状態を表す配列
-dim tmp, 70
+dim tmp, size
 //現在の表示座標
 ;x = 0 : y = 0
 
 repeat 20
-    repeat 68, 1
+    repeat size - 2, 1
         //出力
         mes cells(cnt),1
         //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
