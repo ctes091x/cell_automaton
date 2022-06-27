@@ -1,4 +1,4 @@
-rule_code = 30
+rule_code = 110
 
 mes "Wolfram code : " + rule_code
 
@@ -13,13 +13,20 @@ loop
 
 /*状態遷移と表示
 なんとも言えないので逐行解説する*/
-
 size = 160
-height = 50
+height = 57
 
 dim cells, size
+
 //真ん中に1を置く
-cells(int(size/2)) = 1
+//cells(int(size/2)) = 1
+
+//ランダム化
+randomize
+repeat size
+    cells(cnt) = rnd(2)
+loop
+
 //次のセルの状態を表す配列
 dim tmp, size
 //現在の表示座標
