@@ -1,6 +1,6 @@
-rule_code = 110
+rule_code = 30
 
-mes rule_code
+mes "Wolfram code : " + rule_code
 
 dim rule, 8
 
