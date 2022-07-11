@@ -1,6 +1,6 @@
 rule_code = 110
 
-;mes "Wolfram code : " + rule_code
+mes "Wolfram code : " + rule_code
 
 dim rule, 8
 
@@ -14,7 +14,7 @@ loop
 /*状態遷移と表示
 なんとも言えないので逐行解説する*/
 size = 160
-height = 120
+height = 57
 
 dim cells, size
 
@@ -30,31 +30,22 @@ loop
 //次のセルの状態を表す配列
 dim tmp, size
 //現在の表示座標
-x = 0 : y = 0
+;x = 0 : y = 0
 
 font "", 8
 
 repeat height
-    x = 0
-    //cells(0) = cells(1)
-    //cells(size - 1) = cells(size - 2)
     repeat size - 2, 1
         //出力
-        ;mes cells(cnt),1
-        if cells(cnt) == 0 {
-            color 255, 255, 255
-        } else : cells(cnt) == 1 {
-            color 0, 0, 0
-        }
-        boxf x * 4, y * 4, x * 4 + 4, y * 4 + 4
+        mes cells(cnt),1
         //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
         tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
-        x += 1
     loop
     repeat size - 2, 1
         //次が現在になる
         cells(cnt) = tmp(cnt)
     loop
     //y座標に1を足す
-    y += 1
+    mes
+    pos 0,
 loop
