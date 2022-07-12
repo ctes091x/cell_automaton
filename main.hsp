@@ -13,8 +13,9 @@ loop
 
 /*状態遷移と表示
 なんとも言えないので逐行解説する*/
-size = 160
-height = 120
+cell_size = 4
+size = ginfo_winx / cell_size
+height = ginfo_winy / cell_size
 
 dim cells, size
 
@@ -59,7 +60,7 @@ repeat height
         } else : cells(cnt) == 1 {
             color 0, 0, 0
         }
-        boxf x * 4, y * 4, x * 4 + 4, y * 4 + 4
+        boxf x * cell_size, y * cell_size, x * cell_size + cell_size, y * cell_size + cell_size
         //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
         tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
         x += 1
