@@ -36,8 +36,21 @@ font "", 8
 
 repeat height
     x = 0
+    
+    //端点の処理
+    
+    //1.反射的境界条件
     //cells(0) = cells(1)
     //cells(size - 1) = cells(size - 2)
+    
+    //2.周期的境界条件
+    //exchange = 0
+    //exchange = cells(0)
+    //cells(0) = cells(size)
+    //cells(size) = exchange
+    
+    //3.固定的境界条件
+    
     repeat size - 2, 1
         //出力
         ;mes cells(cnt),1
