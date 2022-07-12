@@ -36,39 +36,41 @@ x = 0 : y = 0
 font "", 8
 
 repeat height
-    x = 0
-    
-    //端点の処理
-    
-    //1.反射的境界条件
-    //cells(0) = cells(1)
-    //cells(size - 1) = cells(size - 2)
-    
-    //2.周期的境界条件
-    //exchange = 0
-    //exchange = cells(0)
-    //cells(0) = cells(size)
-    //cells(size) = exchange
-    
-    //3.固定的境界条件
-    
-    repeat size - 2, 1
-        //出力
-        ;mes cells(cnt),1
-        if cells(cnt) == 0 {
-            color 255, 255, 255
-        } else : cells(cnt) == 1 {
-            color 0, 0, 0
-        }
-        boxf x * cell_size, y * cell_size, x * cell_size + cell_size, y * cell_size + cell_size
-        //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
-        tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
-        x += 1
-    loop
-    repeat size - 2, 1
-        //次が現在になる
-        cells(cnt) = tmp(cnt)
-    loop
-    //y座標に1を足す
-    y += 1
+    redraw 0
+        x = 0
+        
+        //端点の処理
+        
+        //1.反射的境界条件
+        //cells(0) = cells(1)
+        //cells(size - 1) = cells(size - 2)
+        
+        //2.周期的境界条件
+        //exchange = 0
+        //exchange = cells(0)
+        //cells(0) = cells(size)
+        //cells(size) = exchange
+        
+        //3.固定的境界条件
+        
+        repeat size - 2, 1
+            //出力
+            ;mes cells(cnt),1
+            if cells(cnt) == 0 {
+                color 255, 255, 255
+            } else : cells(cnt) == 1 {
+                color 0, 0, 0
+            }
+            boxf x * cell_size, y * cell_size, x * cell_size + cell_size, y * cell_size + cell_size
+            //現在のセルと両隣とを抜き出して数にし、ルールから対応する0或いは1を次の状態に代入
+            tmp(cnt) = rule((cells(cnt - 1) * 4) + (cells(cnt) * 2) + (cells(cnt+1) * 1))
+            x += 1
+        loop
+        repeat size - 2, 1
+            //次が現在になる
+            cells(cnt) = tmp(cnt)
+        loop
+        //y座標に1を足す
+        y += 1
+    redraw 1
 loop
