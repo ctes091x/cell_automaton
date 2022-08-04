@@ -1,4 +1,4 @@
-rule_code = 110
+rule_code = 
 
 ;mes "Wolfram code : " + rule_code
 
@@ -46,10 +46,11 @@ repeat height
         //cells(size - 1) = cells(size - 2)
         
         //2.周期的境界条件
-       // cells(0) = cells(size-2)
+        //cells(0) = cells(size-2)
         //cells(size-1) = cells(1)
         
         //3.固定的境界条件
+        //
         
         repeat size - 2, 1
             //出力
