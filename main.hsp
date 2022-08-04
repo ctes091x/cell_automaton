@@ -1,4 +1,4 @@
-rule_code = 
+rule_code = 30
 
 ;mes "Wolfram code : " + rule_code
 
