@@ -46,10 +46,8 @@ repeat height
         //cells(size - 1) = cells(size - 2)
         
         //2.周期的境界条件
-        //exchange = 0
-        //exchange = cells(0)
-        //cells(0) = cells(size)
-        //cells(size) = exchange
+       // cells(0) = cells(size-2)
+        //cells(size-1) = cells(1)
         
         //3.固定的境界条件
         
