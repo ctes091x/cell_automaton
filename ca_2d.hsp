@@ -1,0 +1,18 @@
+/***************************************
+ca_2d.hsp
+2-dimension cellular-automaton in hsp3
+****************************************/
+
+dim cells, 640, 480
+
+randomize
+repeat 480
+    repeat 640
+        cells(cnt) = rnd(2)
+    loop
+loop
+
+repeat 480
+    repeat 640
+    loop
+loop
