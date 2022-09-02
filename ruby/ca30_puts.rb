@@ -1,14 +1,18 @@
-cells = Array.new(22, 0)
-tmp = Array.new(22, 0)
+width = 100
+height = 50
 
-cells[10] = 1
-rule = [0,0,0,1,1,1,1,0]
+cells = Array.new(width + 2, 0)
+tmp = Array.new(width + 2, 0)
+
+cells[50] = 1
+
+rule = 90
 
 x = 2; y = 0
 
-while y < 20 do
-    x = 0
-    while x < 20 do
+while y < height do
+    x = 2
+    while x < width do
         print cells[x]
         tmp[x] = rule[cells[x - 1] * 4 + cells[x] * 2 + cells[x + 1] * 1]
         x += 1

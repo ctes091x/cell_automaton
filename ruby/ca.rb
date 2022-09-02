@@ -21,31 +21,29 @@ def writeimage(name)
     end
 end
 
-# 30 = 0b00011110
+width = 300
+height = 200
 
-rule = [0,0,0,1,1,1,1,0]
-
-cells = Array.new(300,0)
-tmp = Array.new(300,0)
+cells = Array.new(width + 2, 0)
+tmp = Array.new(width + 2, 0)
 
 cells[150] = 1
 
-x = 1 ; y = 0
+rule = 90
 
-while y < 200
-    while x < 298
-        bit3 = 4 * cells[x - 1]
-        bit2 = 2 * cells[x]
-        bit1 = 1 * cells[x + 1]
-        if rule[bit3 + bit2 + bit1] = 1 then
-            pset(x, y, 0, 0, 0)
-            tmp[x] = 1
-            puts 1
-        end
+x = 2; y = 0
+
+while y < height do
+    x = 2
+    while x < width do
+        # print cells[x]
+        tmp[x] = rule[cells[x - 1] * 4 + cells[x] * 2 + cells[x + 1] * 1]
+        pset(x - 1, y + 1, 255 - tmp[x] * 255, 255 - tmp[x] * 255, 255 - tmp[x] * 255)
         x += 1
     end
+    # print "\n"
     cells = tmp.dup
     y += 1
 end
 
-writeimage("ca30.ppm")
+writeimage("ca" + rule.to_s + ".ppm")
