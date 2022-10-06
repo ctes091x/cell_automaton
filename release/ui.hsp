@@ -1,0 +1,23 @@
+#include "ca.as"
+title "1次元セルオートマトン"
+
+*ui_init
+    objsize 120, , 
+    mes "ウルフラムコード":rule_code = 30:input rule_code
+    mes "セルのサイズ":cell_size = 1:input cell_size
+    chkbox "初期条件ランダム化", is_rand
+    combox boundary_condition, , "周期的境界条件\n固定的境界条件(0)\n固定的境界条件(1)\n反射的境界条件"
+    button gosub "表示", *display
+    button gosub "画像を保存", *save
+    stop
+
+*display
+    if rule_code < 0 or rule_code > 255 : dialog "ウルフラムコードは0以上256未満の数で入力してください。", 1, "数値エラー" : return
+    if cell_size < 1 : dialog "セルのサイズは1以上の数で入力してください。", 1 , "数値エラー": return
+    ca rule_code, cell_size, is_rand, boundary_condition
+    return
+
+*save
+    dialog "bmp", 17, "ビットマップイメージ"
+    if stat : bmpsave refstr
+    return
