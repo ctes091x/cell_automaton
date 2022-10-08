@@ -11,7 +11,7 @@
     mes "ウルフラムコード(0以上256未満)":rule_code = 30:input rule_code
     mes "セルのサイズ(1以上)":cell_size = 1:input cell_size
     chkbox "初期条件ランダム化", is_rand
-    combox boundary_condition, , "周期的境界条件\n固定的境界条件(0)\n固定的境界条件(1)\n反射的境界条件"
+    combox boundary_condition, , "周期的境界条件\n固定的境界条件(0)\n固定的境界条件(1)\n反射的境界条件\n散逸的境界条件"
     button gosub "表示", *display
     disp_btn_id = stat
     button gosub "画像を保存", *save

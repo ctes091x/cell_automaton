@@ -58,6 +58,11 @@
                         cells(0) = cells(1)
                         cells(size - 1) = cells(size - 2)
                         swbreak
+                    case 4
+                        //散逸的境界条件
+                        cells(0) = rnd(2)
+                        cells(1) = rnd(2)
+                        swbreak
                 swend
                 
                 repeat size - 2, 1
