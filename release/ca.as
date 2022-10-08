@@ -1,10 +1,11 @@
 #module
     #deffunc ca int rule_code, int cell_size, int is_rand, int boundary_condition
-        dim rule, 8
+        randomize
 
         /*ルールの生成
         2のcnt乗のビットが1なら配列の対応する箇所に1を代入
         ただのintである筈のモノをビットごとに切り出して配列にする*/
+        dim rule, 8
         repeat 8
             if rule_code and int(powf(2,cnt)) : rule(cnt) = 1
         loop
@@ -21,7 +22,6 @@
 
         //ランダム化
         if is_rand {
-            randomize
             repeat size
                 cells(cnt) = rnd(2)
             loop
